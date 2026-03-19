@@ -1,12 +1,13 @@
 import os
-'''
+import os
+
 #***** Crear archivo *****
 def crear_archivo():
     nombre = input("Nombre del Archivo: ")
     with open(nombre, "w") as archivo: #Mande llamar el archivo cuando abre el archivo y dejas de usarlo lo cierra, with cierra el archivo para quitar el espacio en la ram  
         print ("Archivo creado correctamente")
         
-crear_archivo()
+
 
 #***** agregar datos al archivo *****
 def escribir_archivo():
@@ -18,7 +19,6 @@ def escribir_archivo():
         
     print("Texto guardado correctamente")
     
-escribir_archivo()
 
 #***** Escribir Archivo *****
 def agregar_texto():
@@ -30,11 +30,10 @@ def agregar_texto():
         
     print("Texto agregado correctamente")
 
-agregar_texto()
 
 
 #***** Leer datos del archivo *****
-def leer_datos():
+def leer_texto():
     #nombre = input("Nombre del Archivo")
     nombre = "prueba1.txt"
     
@@ -51,9 +50,8 @@ def leer_datos():
     except FileNotFoundError:
         print("El archivo no existe")
         
-leer_datos()
 
-def leer_datos():
+def leer_archivo():
     #nombre = input("Nombre del Archivo")
     nombre = "prueba1.txt"
     
@@ -70,8 +68,6 @@ def leer_datos():
     except FileNotFoundError:
         print("El archivo no existe")
         
-leer_datos()
-'''
 
 def buscar_palabra():
     nombre = input("Nombre del archivo: ")
@@ -88,4 +84,33 @@ def buscar_palabra():
     except FileExistsError:
         print("El archivo no existe")
         
-buscar_palabra()
+
+def menu():
+    while True:
+        print("\n--- GESTOR DE ARCHIVOS ---")
+        print("1. Crear Archivo")
+        print("2. Escribir en Archivo")
+        print("3. Agregar Texto")
+        print("4. Leer Archivo")
+        print("5. Buscar Palabra")
+        print("6. Salir")
+        
+        opcion = input("Seleccione una opcion: ")
+        
+        if opcion == "1":
+            crear_archivo()
+        elif opcion == "2":
+            escribir_archivo()
+        elif opcion == "3":
+            agregar_texto()
+        elif opcion == "4":
+            leer_archivo()
+        elif opcion == "5":
+            buscar_palabra()
+        elif opcion == "6":
+            print("Saliendo del programa...")
+            break
+        else:
+            print("Opcion Invalida")
+            
+menu()
