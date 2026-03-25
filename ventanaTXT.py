@@ -26,4 +26,4 @@ def crear_archivo():
     with open(nombre, "w") as archivo: #Mande llamar el archivo cuando abre el archivo y dejas de usarlo lo cierra, with cierra el archivo para quitar el espacio en la ram  
         print ("Archivo creado correctamente")
         
-crear_archivo()   
+crear_archivo()
