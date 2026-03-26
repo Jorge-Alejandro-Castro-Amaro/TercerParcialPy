@@ -1,12 +1,12 @@
 import tkinter as tk
 from tkinter import messagebox
 from PIL import Image, ImageTk
+from datetime import date
 
 ventana = tk.Tk()
 ventana.title("Signo Zodiacal Chino")
 ventana.geometry("600x600")
 
-# Diccionario de signos chinos con imágenes
 signos_chinos = {
     "Rata": "rata.jpeg",
     "Buey": "buey.jpeg",
@@ -48,7 +48,17 @@ def signo_chino():
     else:
         sexo = "No especificado"
 
-    texto = f"Nombre: {nombre} {apellido1} {apellido2}\nFecha de nacimiento: {dia}/{mes}/{año}\nSexo: {sexo}\nSigno Chino: {signo}"
+    # Calcular edad
+    hoy = date.today()
+    edad = hoy.year - año - ((hoy.month, hoy.day) < (mes, dia))
+
+    texto = (
+        f"Nombre: {nombre} {apellido1} {apellido2}\n"
+        f"Fecha de nacimiento: {dia}/{mes}/{año}\n"
+        f"Sexo: {sexo}\n"
+        f"Edad: {edad} años\n"
+        f"Signo Chino: {signo}"
+    )
     lbl_texto.config(text=texto)
 
     # Mostrar imagen en la ventana
@@ -103,6 +113,6 @@ lbl_texto = tk.Label(ventana, text="", font=("Arial", 12))
 lbl_texto.place(x=150, y=380)
 
 lbl_img = tk.Label(ventana)
-lbl_img.place(x=250, y=420)
+lbl_img.place(x=400, y=420)
 
 ventana.mainloop()
